@@ -7,8 +7,7 @@ import matplotlib.pyplot as plt
 
 # col1, col2 = st.columns([1, 3])
 
-st.title('Phishing Website Detection using Machine Learning')
-
+st.title('Content-based Phishing Website detection')
 
 
 with st.expander("PROJECT DETAILS"):
@@ -118,6 +117,7 @@ if st.button('Check!'):
         response = re.get(url, verify=False, timeout=4)
         if response.status_code != 200:
             print(". HTTP connection was not successful for the URL: ", url)
+            st.warning("Attention! This web page is a potential PHISHING!")
         else:
             soup = BeautifulSoup(response.content, "html.parser")
             vector = [fe.create_vector(soup)]  # it should be 2d array, so I added []
@@ -127,7 +127,8 @@ if st.button('Check!'):
                 
             else:
                 st.warning("Attention! This web page is a potential PHISHING!")
-                st.snow()
+                
 
     except re.exceptions.RequestException as e:
         print("--> ", e)
+
