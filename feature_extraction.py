@@ -57,7 +57,7 @@ def create_2d_list(folder_name):
 
 
 
-
+"""
 # CREATE A DATAFRAME BY USING 2-D ARRAY
 data = create_2d_list(folder)
 
@@ -98,3 +98,4 @@ vector = create_vector(soup)
 # Print the shape of the vector
 print("Shape of the vector:", len(vector))
 
+"""
